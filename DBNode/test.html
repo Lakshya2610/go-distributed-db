@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <form>
+        <label for="short">Short URL:</label>
+        <input type="text" id="short">
+
+        <label for="long">Long URL:</label>
+        <input type="text" id="long">
+
+        <button id="submit">Submit</button>
+    </form>
+
+    <script>
+        const form = document.getElementsByTagName( "form" )[0];
+        const ports = [5000, 5001, 5002, 5003, 5004, 5005];
+        form.onsubmit = function (ev) {
+            ev.preventDefault();
+            
+            const targetPort = 5000;// ports[Math.floor(Math.random() * ports.length)];
+            const shortURL = document.getElementById( "short" ).value;
+            const longURL = document.getElementById( "long" ).value;
+            console.log(shortURL, longURL, targetPort)
+            fetch( `http://dh2020pc08:${targetPort}/set?short=${shortURL}&long=${longURL}`, {
+                method: "POST",
+                mode: "cors"
+            } );
+        }
+    </script>
+</html>

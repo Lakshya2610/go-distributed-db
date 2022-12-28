@@ -1,0 +1,5 @@
+DBNode/*.log
+DBNode/*.exe
+DBController/*.exe
+DBNode/.vscode
+DBController/.vscode
